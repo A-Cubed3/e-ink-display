@@ -1,6 +1,4 @@
 #pip install spotipy requests pillow openmeteo_requests requests_cache pandas retry_requests
-#pip install openmeteo-requests
-#pip install requests-cache retry-requests numpy pandas
 
 import time
 import requests
@@ -82,12 +80,12 @@ def get_time():
 
 def update_display():
     # Create an image with white background
-    image = Image.new('1', (400, 300), 255)  # Increased size to 400x300
+    image = Image.new('1', (800, 600), 255)  # Increased size to 800x600
     draw = ImageDraw.Draw(image)
     
     # Load a larger font
-    font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"  # Update this path to a valid font file on your system
-    font = ImageFont.truetype(font_path, 24)  # Increased font size to 24
+    font_path = "C:/Windows/Fonts/arial.ttf"  # Update this path to a valid font file on your system
+    font = ImageFont.truetype(font_path, 36)  # Increased font size to 36
     
     # Get data
     song = get_currently_playing()
@@ -96,11 +94,11 @@ def update_display():
     
     # Draw text on the image with some styling
     draw.text((20, 20), f"Now Playing:", font=font, fill=0)
-    draw.text((20, 60), song, font=font, fill=0)
-    draw.text((20, 120), f"Weather:", font=font, fill=0)
-    draw.text((20, 160), weather, font=font, fill=0)
-    draw.text((20, 220), f"Time:", font=font, fill=0)
-    draw.text((20, 260), current_time, font=font, fill=0)
+    draw.text((20, 80), song, font=font, fill=0)
+    draw.text((20, 160), f"Weather:", font=font, fill=0)
+    draw.text((20, 220), weather, font=font, fill=0)
+    draw.text((20, 300), f"Time:", font=font, fill=0)
+    draw.text((20, 360), current_time, font=font, fill=0)
     
     # Display the image on the e-ink display
     # Note: Replace this with your e-ink display library's method to display the image
